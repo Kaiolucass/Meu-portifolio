@@ -20,6 +20,14 @@
     --glass-border: rgba(15, 23, 42, 0.08);
 }
 
+.logo-kaio {
+    width: 150px;
+    height: auto;
+    max-width: 80px;
+    margin-right: 10px;
+}
+
+
 html {
     scroll-behavior: smooth;
 }
