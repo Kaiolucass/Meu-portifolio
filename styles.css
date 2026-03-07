@@ -14,6 +14,223 @@
     --transition-smooth: all 0.3s ease;
 }
 
+/* Ajustes para Modo Claro (Bootstrap handle automaticamente, mas refinamos aqui) */
+[data-bs-theme="light"] {
+    --glass-bg: rgba(248, 250, 252, 0.8);
+    --glass-border: rgba(15, 23, 42, 0.08);
+}
+
+.logo-kaio {
+    width: 150px;
+    height: auto;
+    max-width: 80px;
+    margin-right: 10px;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* 2. Tipografia e Cores de Texto */
+h1, h2, h3, h4 {
+    letter-spacing: -0.04em;
+    font-weight: 700;
+}
+
+.text-science {
+    color: var(--primary-science) !important;
+}
+
+
+/* Efeito de Borda Neon Azul para a Foto */
+.profile-frame {
+    position: relative;
+    display: inline-block;
+    padding: 8px; /* Espaçamento para o brilho não cortar */
+}
+
+.profile-frame img {
+    max-width: 320px;
+    height: auto;
+    /* Borda sólida azul cyan */
+    border: 4px solid #0ea5e9 !important; 
+    border-radius: 2rem; /* Deixa os cantos arredondados como na imagem */
+    
+    /* Camadas de brilho (Glow) */
+    box-shadow: 
+        0 0 10px rgba(14, 165, 233, 0.8),  /* Brilho interno */
+        0 0 20px rgba(14, 165, 233, 0.4),  /* Brilho médio */
+        0 0 30px rgba(14, 165, 233, 0.2);  /* Brilho externo suave */
+        
+    transition: var(--transition);
+}
+
+/* Aumenta o brilho quando passa o mouse */
+.profile-frame:hover img {
+    box-shadow: 
+        0 0 15px rgba(14, 165, 233, 1), 
+        0 0 30px rgba(14, 165, 233, 0.6), 
+        0 0 45px rgba(14, 165, 233, 0.3);
+    transform: scale(1.02);
+}
+
+.code-snippet {
+    font-family: 'Fira Code', 'Courier New', monospace;
+    color: var(--primary-science);
+    background: rgba(14, 165, 233, 0.1);
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-color: #0ea5e9;
+}
+
+/* 3. Navbar Científica */
+.navbar {
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    transition: var(--transition);
+}
+
+.nav-link {
+    position: relative;
+    transition: var(--transition-smooth);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 5px;
+    left: 0;
+    background-color: var(--primary-science);
+    transition: var(--transition);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link:hover {
+    color: var(--primary-science) !important;
+}
+
+/* 4. Glassmorphism e Cards */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border) !important;
+    transition: var(--transition);
+}
+
+.glass-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary-science) !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* 5. Tech Badges (Habilidades) */
+.tech-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+    border-radius: 1.25rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    transition: var(--transition);
+}
+
+.tech-badge i {
+    font-size: 2.8rem;
+    margin-bottom: 12px;
+    transition: var(--transition);
+}
+
+.tech-badge:hover {
+    background: rgba(14, 165, 233, 0.1);
+    border-color: var(--primary-science);
+    color: var(--primary-science);
+    transform: scale(1.05);
+}
+
+/* 6. Botões Customizados */
+.btn-science {
+    background-color: var(--primary-science);
+    color: #fff;
+    border: none;
+    font-weight: 600;
+    padding: 0.6rem 1.5rem;
+    transition: var(--transition);
+}
+
+.btn-science:hover {
+    background-color: var(--primary-hover);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px var(--primary-glow);
+}
+
+.btn-outline-science {
+    border: 2px solid var(--primary-science);
+    color: var(--primary-science);
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-outline-science:hover {
+    background-color: var(--primary-science);
+    color: #fff;
+}
+
+/* 7. Timeline de Carreira */
+#work-history .card {
+    border-left-width: 5px !important;
+}
+
+/* 8. Responsividade e Utilidades */
+.cursor-pointer { cursor: pointer; }
+
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background: var(--bs-body-tertiary);
+        padding: 1.5rem;
+        border-radius: 1rem;
+        margin-top: 1rem;
+        border: 1px solid var(--glass-border);
+    }
+}
+
+@media (max-width: 768px) {
+    .display-2 { font-size: 2.8rem; }
+    .display-3 { font-size: 2.2rem; }
+}
+
+/* 1. Variáveis e Configurações de Sistema */
+:root {
+    /* Paleta Científica Principal */
+    --primary-science: #0ea5e9;
+    --primary-hover: #0284c7;
+    --primary-glow: rgba(14, 165, 233, 0.3);
+    
+    /* Configurações de Vidro (Glassmorphism) */
+    --glass-bg: rgba(15, 23, 42, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    
+    /* Animações */
+    --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-smooth: all 0.3s ease;
+}
+
 /* Ajustes para Modo Claro */
 [data-bs-theme="light"] {
     --glass-bg: rgba(248, 250, 252, 0.8);
@@ -158,6 +375,27 @@ h1, h2, h3, h4 {
 .btn-outline-science:hover {
     background-color: var(--primary-science);
     color: #fff;
+}
+
+/* Estilização das Tags de Tecnologia */
+.badge-tech {
+    background-color: rgba(14, 165, 233, 0.1); /* Fundo escuro levemente transparente */
+    color: #0ea5e9; /* Azul ciano do seu banner */
+    border: 1px solid #0ea5e9; /* Borda fina neon */
+    padding: 5px 15px;
+    border-radius: 50px; /* Formato de pílula igual à imagem */
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: var(--transition);
+}
+
+.badge-tech:hover {
+    background-color: rgba(14, 165, 233, 0.1);
+    border-color: #0ea5e9;
+    box-shadow: 0 0 10px rgba(14, 165, 233, 0.3); /* Brilho ao passar o mouse */
+    transform: translateY(-2px);
 }
 
 /* 8. Responsividade */
